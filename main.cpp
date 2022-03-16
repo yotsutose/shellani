@@ -59,12 +59,23 @@ void solve4ts()
 {
   
   
-  cout<<"####"<<endl;
-  cout<<"####"<<endl;
-  cout<<"####"<<endl;
-  cout<<"####"<<endl;
-  cout<<"\e[1A";
-  cout<<"aaaa";
+  rep(i,32){
+    string s;
+    cin>>s;
+    int count=0;
+    int now=1;
+    rep(j,32){
+      if(s[i]=='0' && now==1){
+        cout<<count;
+      }
+      if(s[i]=='1' && now==0){
+        cout<<count;
+      }
+      now=(s[i]-'0');
+      count++;
+    }
+    cout<<endl;
+  }
   
   
 }
