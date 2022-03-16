@@ -17,6 +17,8 @@ c++ -std=c++14 risu.cpp `pkg-config --cflags opencv4` `pkg-config --libs opencv4
 ./a.out
 ```
 
-# sankou
+# References
+opencv画素アクセス
 https://minus9d.hatenablog.com/entry/20130126/1359194404
+ANSIエスケープチートシート
 https://qiita.com/PruneMazui/items/8a023347772620025ad6

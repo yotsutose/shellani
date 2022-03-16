@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+#include <unistd.h>
 
 void solve4ts()
 {
@@ -15,12 +16,16 @@ void solve4ts()
   }
 
   // data -> console
-  for(int i=0;i<32;i++){
-    for(int j=0;j<32;j++){
-      if(data[i][j]<150) printf("\e[48;5;%dm  ",200);
-      else printf("\e[0m  ");
+  for(int ms=0;ms<100;ms++){
+    for(int i=0;i<32;i++){
+      for(int j=0;j<32;j++){
+        if(data[i][j]<150) printf("\e[48;5;%dm  ",100+(i+j)/15+ms);
+        else printf("\e[0m  ");
+      }
+      printf("\e[0m\n");
     }
-    printf("\e[0m\n");
+    printf("\e[32A");
+    usleep(0.05 * 1000000);
   }
   
   return;
