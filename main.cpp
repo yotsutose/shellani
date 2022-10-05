@@ -51,28 +51,31 @@ template <class T> inline void out(T &a) { bool flag=true; for(auto&x:a){if(flag
 int nmax=200000; // 2*(10^5)
 vvec G(nmax);
 
-
+vector<pair<char, int>> encode(const string& str) {
+    int n = (int)str.size();
+    vector<pair<char, int>> ret;
+    for (int l = 0; l < n;) {
+        int r = l + 1;
+        for (; r < n && str[l] == str[r]; r++) {};
+        ret.push_back({str[l], r - l});
+        l = r;
+    }
+    return ret;
+}
 
 
 
 void solve4ts()
 {
-  
-  
-  rep(i,32){
+  int r=32;
+  while(r--){
     string s;
     cin>>s;
-    int count=0;
-    int now=1;
-    rep(j,32){
-      if(s[i]=='0' && now==1){
-        cout<<count;
-      }
-      if(s[i]=='1' && now==0){
-        cout<<count;
-      }
-      now=(s[i]-'0');
-      count++;
+    s = "0" + s;
+    vector<pair<char,int>> ss=encode(s);
+    ss[0].sc--;
+    for(auto p:ss){
+      cout<<p.sc<<" ";
     }
     cout<<endl;
   }
